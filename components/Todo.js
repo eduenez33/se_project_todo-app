@@ -6,9 +6,7 @@ export default class Todo {
 
   _setEventListeners() {
     this._todoCheckboxEl.addEventListener("change", () => {
-      !this._data.completed
-        ? (this._data.completed = true)
-        : (this._data.completed = false);
+      this._data.completed = !this._data.completed;
     });
 
     this._todoDeleteBtn.addEventListener("click", () => {
