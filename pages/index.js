@@ -66,3 +66,5 @@ const popup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: () => {},
 });
+
+popup.setEventListeners();
