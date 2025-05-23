@@ -14,7 +14,11 @@ class Popup {
     this._popupElement.classList.remove("popup_visible");
   }
 
-  setEventListeners() {}
+  setEventListeners() {
+    this._popupCloseButton.addEventListener("click", () => {
+      this.close();
+    });
+  }
 }
 
 export default Popup;
