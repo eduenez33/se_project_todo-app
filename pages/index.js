@@ -65,3 +65,7 @@ initialTodos.forEach((item) => {
 
 const newTodoValidation = new FormValidator(addTodoForm, settings);
 newTodoValidation.enableValidation();
+const popup = new PopupWithForm({
+  popupSelector: "#add-todo-popup",
+  handleFormSubmit: () => {},
+});
