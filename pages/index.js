@@ -33,7 +33,7 @@ const renderTodo = (item) => {
 };
 
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopup);
+  popup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
