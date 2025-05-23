@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
