@@ -4,7 +4,11 @@ class Popup {
     this._popupCloseButton = this._popupElement.querySelector(".popup__close");
   }
 
-  _handleEscapeClose() {}
+  _handleEscapeClose = (evt) => {
+    if (evt.key === "Escape") {
+      this.close();
+    }
+  };
 
   open() {
     this._popupElement.classList.add("popup_visible");
