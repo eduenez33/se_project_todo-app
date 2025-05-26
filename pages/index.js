@@ -27,25 +27,6 @@ addTodoButton.addEventListener("click", () => {
   popup.open();
 });
 
-addTodoForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = evt.target.name.value;
-  const dateInput = evt.target.date.value;
-
-  // Create a date object and adjust for timezone
-  const date = new Date(dateInput);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-  // Create new id
-  const id = uuidv4();
-
-  const values = { name, date, id };
-  renderTodo(values);
-  popup.close();
-  newTodoValidation.resetValidation();
-  evt.target.reset();
-});
-
 initialTodos.forEach((item) => {
   renderTodo(item);
 });
@@ -55,7 +36,25 @@ newTodoValidation.enableValidation();
 
 const popup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: () => {},
+  handleFormSubmit: (inputValues) => {
+    const name = inputValues.name;
+
+    // Create a date object and adjust for timezone
+    const date = new Date(inputValues.date);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+
+    // Create new id
+    const id = uuidv4();
+
+    const values = { name, date, id };
+
+    renderTodo(values);
+
+    popup.close();
+
+    newTodoValidation.resetValidation();
+    addTodoForm.reset();
+  },
 });
 
 popup.setEventListeners();
