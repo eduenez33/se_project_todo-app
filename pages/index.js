@@ -39,11 +39,14 @@ addTodoButton.addEventListener("click", () => {
   popup.open();
 });
 
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  todosSection.addItem(todo);
+};
+
 const todosSection = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    todosSection.addItem(generateTodo(item));
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 
